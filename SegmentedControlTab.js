@@ -18,7 +18,7 @@ const handleTabPress = (index, multiple, selectedIndex, onTabPress) => {
 };
 
 const TabOption = ({
-    isTabActive, index, badge, text,
+    isTabActive, index, badge, node,
     firstTabStyle, lastTabStyle,
     tabStyle, activeTabStyle,
     tabTextStyle, activeTabTextStyle,
@@ -36,14 +36,14 @@ const TabOption = ({
             onPress={() => onTabPress(index)}
             activeOpacity={1}>
             <View style={{ flexDirection: "row" }}>
-                <Text style={[
+                <View style={[
                     styles.tabTextStyle,
                     tabTextStyle,
                     isTabActive ? [styles.activeTabTextStyle, activeTabTextStyle] : {}]}
                     numberOfLines={1}
                     ellipsizeMode="tail">
-                    {text}
-                </Text>
+                    {node}
+                </View>
                 {
                     badge ?
                         <View style={[
@@ -91,7 +91,7 @@ const SegmentedControlTab = ({
                             index={index}
                             badge={badges && badges[index] ? badges[index] : false}
                             isTabActive={multiple ? selectedIndices.includes(index) : selectedIndex === index}
-                            text={item}
+                            node={item}
                             onTabPress={(index) => handleTabPress(index, multiple, selectedIndex, onTabPress)}
                             firstTabStyle={index === 0 ? [{ borderRightWidth: 0 }, firstTabStyle] : {}}
                             lastTabStyle={index === values.length - 1 ? [{ borderLeftWidth: 0 }, lastTabStyle] : {}}
