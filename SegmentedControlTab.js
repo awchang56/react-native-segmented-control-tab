@@ -36,10 +36,14 @@ const TabOption = ({
             onPress={() => onTabPress(index)}
             activeOpacity={1}>
             <View style={{ flexDirection: "row" }}>
-                <View style={[
-                    styles.tabTextStyle,
-                    tabTextStyle,
-                    isTabActive ? [styles.activeTabTextStyle, activeTabTextStyle] : {}]}
+                <View
+                    // style={
+                    //     [
+                    //         styles.tabTextStyle,
+                    //         tabTextStyle,
+                    //         isTabActive ? [styles.activeTabTextStyle, activeTabTextStyle] : {}
+                    //     ]
+                    // }
                     numberOfLines={1}
                     ellipsizeMode="tail">
                     {node}
